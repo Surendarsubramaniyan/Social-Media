@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Create Post</title>
+</head>
+<body>
+	<h1>Create Post</h1>
+	<form action="/createPost" method="post" enctype="multipart/form-data">
+	
+	<textarea name="caption" placeholder="Post Caption" required></textarea>
+	<br><br>	
+	<input type="file" name="photo" accept="image/*">
+	<br><br>
+	<button type="submit">Post</button>
+	</form>
+</body>
+</html>
