@@ -1,5 +1,7 @@
 package com.bean.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,11 @@ PostRepository repo;
 public void createPost(Post post) {
 	// TODO Auto-generated method stub
 	repo.save(post);
+}
+
+@Override
+public List<Post> getAllPost() {
+	// TODO Auto-generated method stub
+	return repo.findAll();
 }
 }
