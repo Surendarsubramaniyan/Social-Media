@@ -2,17 +2,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Create a New Account</title>
+<title>Edit Profile</title>
+<link rel="stylesheet" type="text/css" th:href="@{/homePageStyles.css}">
 </head>
 <body>
-	<h1>Create a New Account</h1>
-	<form action="/signUp" method="post" enctype="multipart/form-data">
-		<input type="text" name="username" placeholder="Username" >
-		<br><br>
-		<input type="email" name="email" placeholder="Email ID">
-		<br><br>
-		<input type="password" name="password" placeholder="Password">
-		<br><br>
+	<div class="navigationBar">
+	<span th:text="${session.username}"></span>
+		<a href="/showPost">Posts</a>
+		<a href="/openCreatePostPage">Create Post</a>
+		<a href="/openMyProfile">My Profile</a>
+		<a href="/openEditProfile">Edit Profile</a>
+		<a href="/logout">Log Out</a>
+	</div>
+	<h1>Edit Profile</h1>
+	<form action="/editProfile" method="post" enctype="multipart/form-data">
 		<input type="date" name="dob" placeholder="Date Of Birth">
 		<br><br>
 		<input type="radio" name="gender" value="male"><label>Male</label>
@@ -31,9 +34,7 @@
 		<br><br>
 		<input type="file" name="profilePhoto" accept="image/*">
 		<br><br>
-		<button type="submit">Sign Up</button>
+		<button type="submit">Submit</button>
 	</form>
-	<hr>
-	<a href="/">Already have an account?</a>
 </body>
 </html>

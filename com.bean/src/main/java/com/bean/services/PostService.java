@@ -8,5 +8,8 @@ public interface PostService {
 
 	void createPost(Post post);
 	List<Post> getAllPost();
+	Post getPost(Long id);
+	void updateLikes(Post post);
+	void updateComments(Post post);
 
 }

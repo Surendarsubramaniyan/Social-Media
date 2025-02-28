@@ -10,4 +10,9 @@ public interface UserService {
 
 	boolean validateUser(String username, String password);
 
+	User getUserByName(String username);
+
+	void updateUser(User user);
+	
+
 }

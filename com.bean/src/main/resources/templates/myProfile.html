@@ -2,26 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>My Profile</title>
 <link rel="stylesheet" type="text/css" th:href="@{/homePageStyles.css}">
 </head>
 <body>
 	<div class="navigationBar">
 	<span th:text="${session.username}"></span>
-	<a href="/showPost">Posts</a>
-	<a href="/openCreatePostPage">Create Post</a>
-	<a href="/openMyProfile">My Profile</a>
-	<a href="/openEditProfile">Edit Profile</a>
-	<a href="/logout">Log Out</a>
+		<a href="/showPost">Posts</a>
+		<a href="/openCreatePostPage">Create Post</a>
+		<a href="/openMyProfile">My Profile</a>
+		<a href="/openEditProfile">Edit Profile</a>
+		<a href="/logout">Log Out</a>
 	</div>
 	
-	<div class="post">
-    	<h1>Welcome <span th:text="${session.username}"></span></h1>
-        <div th:each="post : ${allPosts}">
-        <form action="/showProfile" method="post">
- 			<input type="hidden" name="username" th:value="${post.user.username}">
-			<button type="submit" ><span>Posted By <span th:text="${post.user.username}">Unknown</span></span></button>
-		</form>
+	<h1>My Profile</h1>
+	<div class="profile-picture">
+            <img th:if="${user.photoBase64}" 
+                 th:src="'data:image/jpeg;base64,' + ${user.photoBase64}" 
+                 alt="Profile Photo" />
+        </div>
+	<p>Name: <span th:text="${user.username}"></span></p>
+	<p>Email: <span th:text="${user.email}"></span></p>
+	<p>Date Of Birth: <span th:text="${user.dob}"></span></p>
+	<p>Gender: <span th:text="${user.gender}"></span></p>
+	<p>City: <span th:text="${user.city}"></span></p>
+	<p>About U: <span th:text="${user.bio}"></span></p>
+	<p>College: <span th:text="${user.college}"></span></p>
+	<p>LinkedIn: <span th:text="${user.linkedIn}"></span></p>
+	<p>Git Hub: <span th:text="${user.github}"></span></p>
+	<hr>
+	<div th:each="post : ${myPosts}">
+        <span>Posted By <span th:text="${post.user.username}">Unknown</span></span>
         <img class="profilePic" th:if="${post.user.photoBase64}"
                  th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}" 
                  alt="User Photo"/>
@@ -37,20 +48,7 @@
             </p>
             
             Likes:<span th:text="${post.likes}"> </span>
-			<br><br>
-			<form action="/likePost" method="post">
-			<input type="hidden" name="id" th:value="${post.id}">
-			<button type="submit">Like</button>
-			</form>
-			<br><br>
-
-			<form action="/addComment" method="post">
- 			<input type="hidden" name="id" th:value="${post.id}">
-			<textarea name="comment" placeholder="Add comments"></textarea>
-			<br>
-			<input type="submit" >
-			</form>
-
+            
  			<div class="comments-section">
              <h4>Comments:</h4>
              <ul>
@@ -61,7 +59,5 @@
              </div>
               <hr>
         </div>
-    </div>
-	
 </body>
 </html>

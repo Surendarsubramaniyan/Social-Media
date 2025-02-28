@@ -1,0 +1,50 @@
+@charset "UTF-8";
+body {
+     font-family: cursive;
+    font-weight: bold;
+    background-color: antiquewhite;
+    color: black;
+    margin: 0;
+    padding: 0;
+    text-align:center;
+    
+}
+.navigationBar span{
+	color: black;
+padding: 5px;
+border-radius: 5px;
+    background-color: gray;
+}
+
+/* Navigation bar */
+.navigationBar {
+    background-color: black;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navigationBar a{
+text-decoration: none;
+color: black;
+padding: 5px;
+border-radius: 5px;
+    background-color: gray;
+}
+
+img
+{
+width:500px;
+        height: 250px;
+        border-radius: 10Px;
+}
+ul{
+	 list-style-type: none;
+}
+
+.profilePic{
+	width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    border-radius: 50%; /* This makes the image circular */
+    object-fit: cover; /* Ensure the image covers the entire circle */
+}

@@ -39,4 +39,16 @@ public class UserServiceImplementation implements UserService {
 		}
 	}
 
+	@Override
+	public User getUserByName(String username) {
+		// TODO Auto-generated method stub
+		return repo.findByUsername(username);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		repo.save(user);
+		
+	}
+
 }
